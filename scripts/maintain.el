@@ -1,0 +1,33 @@
+(defvar config-path "~/.emacscust/")
+
+(defun config-pull ()
+  (interactive)
+  (let ((git-args (format "--no-pager -C %s" config-path)))
+    (message (shell-command-to-string (format "git %s pull origin master --dry-run" git-args)))))
+
+(defun config-push ()
+  (interactive)
+  (let ((git-args (format "--no-pager -C %s" config-path)))
+    (message (shell-command-to-string (format "git %s push origin master --dry-run" git-args)))))
+
+(defun config-commit (commit)
+  (interactive "sCommit Message: ")
+  (let ((git-args (format "--no-pager -C %s" config-path))
+        (commit-args (format "commit -a -m \"%s\"" commit)))
+    (message (shell-command-to-string (format "git %s %s --dry-run" git-args commit-args))))
+  (message commit)
+  (let ((push-commits (downcase (read-string "Push commits? [Y/n]: " nil nil "y"))))
+    (if (string= push-commits "y")
+        (message push-commits))))
+
+(defun config-updates ()
+  (interactive)
+  (with-output-to-temp-buffer "*Config*"
+    (let ((git-args (format "--no-pager -C %s" config-path))
+                    (diff-args "diff origin/master"))
+      (shell-command (format "git %s %s" git-args diff-args) "*Config*")
+      (pop-to-buffer "*Config*")
+      (insert "\n\n[p]ull, pu[s]h, [c]ommit, or [q]uit.")
+      (local-set-key (kbd "p") 'config-pull)
+      (local-set-key (kbd "c") 'config-commit)
+      )))

@@ -31,6 +31,8 @@
 
 (defconst js-addon-packages
   '(nodejs-repl
+    mmm-mode
+    web-mode
     vue-mode))
 
 (defun js-addon/init-nodejs-repl ()
@@ -45,6 +47,26 @@
       (spacemacs/set-leader-keys-for-major-mode 'js2-mode "n'" 'nodejs-repl-switch-to-repl)
       (spacemacs/set-leader-keys-for-major-mode 'js2-mode "ns" 'nodejs-repl-switch-to-repl))))
 
-(defun js-addon/init-vue-mode ())
+(defun js-addon/init-vue-mode ()
+  (use-package vue-mode
+    :init
+    (progn
+      (require 'company)
+      (require 'company-tern)
+      (add-to-list 'company-backends 'company-tern))
+    :config
+    (add-to-list 'vue-mode-hook (lambda ()
+                                  (company-mode t)
+                                  (tern-mode t))
+                 )))
 
+(defun js-addon/init-mmm-mode ()
+  (use-package mmm-mode
+    :config
+    (progn
+      (setq mmm-js-mode-exit-hook (lambda () (setq tern-mode nil)))
+      (setq mmm-js-mode-enter-hook (lambda () (setq tern-mode t))))))
+
+(defun js-addon/init-web-mode ()
+  (use-package web-mode))
 ;;; packages.el ends here

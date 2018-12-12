@@ -32,4 +32,3 @@
               js-indent-level 2
               js2-bounce-indent-p t)
 
-;; add sqlserver-query
