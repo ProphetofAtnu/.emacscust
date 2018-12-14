@@ -12,6 +12,10 @@
 
 (setq org-directory "~/org")
 (setq org-agenda-files (list "~/org/"))
+(if (eq system-type 'windows-nt)
+    (setq org-mobile-directory "/plink:cultofatnu.org:/home/jacsc/mobile")
+  (setq org-mobile-directory "/ssh:cultofatnu.org:/home/jacsc/mobile"))
+
 
 ; Refile on top of file max
 (setq org-refile-use-outline-path 'file)

@@ -60,13 +60,13 @@
                                   (tern-mode t))
                  )))
 
-(defun js-addon/init-mmm-mode ()
+(defun js-addon/post-init-mmm-mode ()
   (use-package mmm-mode
     :config
     (progn
       (setq mmm-js-mode-exit-hook (lambda () (setq tern-mode nil)))
       (setq mmm-js-mode-enter-hook (lambda () (setq tern-mode t))))))
 
-(defun js-addon/init-web-mode ()
+(defun js-addon/post-init-web-mode ()
   (use-package web-mode))
 ;;; packages.el ends here

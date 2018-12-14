@@ -26,20 +26,19 @@
       '(
 
 	("t" "Task" entry (file+olp "~/org/Notes.org" "Refile" "Tasks")
-	 "* TODO %? %^g")
+	 "* TODO %? %^G")
 
 	("s" "Snippit" entry (file+olp "~/org/Notes.org" "Refile" "Snips")
-	 "* %?
-	%^{Lang}
-	#+BEGIN_SRC %\\1
-	%i
-	#+END_SRC
+	 "* %^{Heading}
+:PROPERTIES:
+:Lang: %^{Language}
+:END:
+#+BEGIN_SRC %\\2
 
-	:PROPERTIES:
-	:Lang: %\\1
-	:END:
+#+END_SRC
 	")
 
-
-
+  ("c" "From Clipboard" entry (file+olp "~/org/Notes.org" "Refile" "Snips")
+   "* %^{Heading} %T %^G
+%x")
 	))
