@@ -36,3 +36,9 @@
               js-indent-level 2
               js2-bounce-indent-p t)
 
+;; C++ and C
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'objc-mode-hook 'irony-mode)
+
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
