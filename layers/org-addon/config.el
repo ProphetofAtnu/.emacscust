@@ -15,6 +15,8 @@
 (setq org-refile-targets
       '((org-agenda-files . (:maxlevel . 4))))
 
+(setq org-log-into-drawer t)
+
 (setq org-outline-path-complete-in-steps nil)
 
 (with-eval-after-load 'org
