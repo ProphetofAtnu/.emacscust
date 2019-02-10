@@ -57,7 +57,8 @@
     :config
     (add-to-list 'vue-mode-hook (lambda ()
                                   (company-mode t)
-                                  (tern-mode t))
+                                  (tern-mode t)
+                                  (add-to-list 'company-backends 'company-tern))
                  )))
 
 (defun js-addon/post-init-mmm-mode ()
