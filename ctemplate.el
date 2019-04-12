@@ -25,20 +25,18 @@
 (setq org-capture-templates
       '(
 
-	("t" "Task" entry (file+olp "~/org/Notes.org" "Refile" "Tasks")
+	("t" "Task" entry (file+olp "~/org/GlobalRefile.org" "Tasks")
 	 "* TODO %? %^G")
 
-	("s" "Snippit" entry (file+olp "~/org/Notes.org" "Refile" "Snips")
+	("s" "Snippit" entry (file+olp "~/org/GlobalRefile.org" "Snips")
 	 "* %^{Heading}
 :PROPERTIES:
 :Lang: %^{Language}
 :END:
 #+BEGIN_SRC %\\2
 
-#+END_SRC
-	")
+#+END_SRC")
 
-  ("c" "From Clipboard" entry (file+olp "~/org/Notes.org" "Refile" "Snips")
-   "* %^{Heading} %T %^G
-%x")
+  ("n" "Note" entry (file+olp "~/org/GlobalRefile.org" "Notes"))
+
 	))

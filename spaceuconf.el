@@ -36,9 +36,41 @@
 ;;               js-indent-level 2
 ;;               js2-bounce-indent-p t)
 
+
+;; Add my custom packages to the loadpath
+;; (with-eval-after-load
+;;     (add-to-list 'load-path "~/.emacscust/packages")
+;; )
+
+(defvar emc-custom-packages-directory "~/.emacscust/packages")
+
+(let ((pkg (-filter (lambda (dir)
+                  (not (char-equal (aref dir 0) ?.))
+                  )
+                (directory-files "~/.emacscust/packages")
+                )
+       )
+      )
+  (message pkg)
+  )
+
 ;; C++ and C
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'c-mode-hook 'irony-mode)
 (add-hook 'objc-mode-hook 'irony-mode)
 
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+;; Make the tap width less ridiculous
+(setq default-tab-width 2)
+
+
+(use-package lsp)
+(use-package lsp-clients)
+(use-package company)
+(use-package company-lsp)
+(push 'company-lsp company-backends)
+
+(add-hook 'dart-mode-hook '(lambda () (progn
+                                        (lsp)
+                                        (company-mode))))
