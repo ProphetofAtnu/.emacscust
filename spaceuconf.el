@@ -74,3 +74,7 @@
 (add-hook 'dart-mode-hook '(lambda () (progn
                                         (lsp)
                                         (company-mode))))
+
+(use-package exec-path-from-shell)
+(exec-path-from-shell-initialize)
+
