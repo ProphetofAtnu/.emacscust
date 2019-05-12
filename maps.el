@@ -1,5 +1,10 @@
 ;; Globals
 (spacemacs/set-leader-keys "hdi" 'helm-info)
+(spacemacs/declare-prefix "y" "yasnippet")
+(spacemacs/set-leader-keys "yy" #'yas-expand)
+(spacemacs/set-leader-keys "ys" #'spacemacs/helm-yas)
+(spacemacs/set-leader-keys "yn" #'yas-new-snippet)
+(spacemacs/set-leader-keys "yr" #'yas-reload-all)
 
 
 ;; Eww? Lets try...
