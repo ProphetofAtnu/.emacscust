@@ -66,6 +66,7 @@ values."
      latex
      (python :variables
              python-indent-offset 4
+             python-backend 'anaconda
              )
      csharp
      (go :variables

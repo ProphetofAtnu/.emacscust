@@ -25,6 +25,4 @@
          "TODO")
         ("c" "Challenge" entry (file (concat org-directory "/reminders.org"))
          "TODO")
-        ("p" "Plan" entry (file (concat org-directory "/reminders.org"))
-         "TODO")
         ))
