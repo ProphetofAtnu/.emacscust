@@ -65,16 +65,26 @@
 (setq default-tab-width 2)
 
 
-(use-package lsp)
-(use-package lsp-clients)
-(use-package company)
-(use-package company-lsp)
-(push 'company-lsp company-backends)
+;; (use-package lsp)
+;; (use-package lsp-clients)
+;; (use-package company)
+;; (use-package company-lsp)
+;; (push 'company-lsp company-backends)
 
-(add-hook 'dart-mode-hook '(lambda () (progn
-                                        (lsp)
-                                        (company-mode))))
+;; (add-hook 'dart-mode-hook '(lambda () (progn
+;;                                         (lsp)
+;;                                         (company-mode))))
 
 (use-package exec-path-from-shell)
 (exec-path-from-shell-initialize)
 
+;; LSP UI config
+
+(use-package lsp-mode
+  :ensure t
+  :config
+  (use-package lsp-ui
+    :ensure t
+    :config
+    (setq lsp-ui-sideline-ignore-duplicate t)
+    ))

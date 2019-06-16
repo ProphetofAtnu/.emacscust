@@ -58,7 +58,7 @@ values."
      csv
      (javascript :variables
                  javascript-import-tool 'import-js
-                 ;; javascript-backend 'lsp
+                 javascript-backend 'lsp
                  javascript-fmt-tool 'prettier
                  node-add-modules-path t)
      js-addon

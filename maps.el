@@ -5,6 +5,7 @@
 (spacemacs/set-leader-keys "ys" #'spacemacs/helm-yas)
 (spacemacs/set-leader-keys "yn" #'yas-new-snippet)
 (spacemacs/set-leader-keys "yr" #'yas-reload-all)
+(spacemacs/set-leader-keys "hc" #'helm-company)
 
 
 ;; Eww? Lets try...
