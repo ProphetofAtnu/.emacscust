@@ -7,6 +7,14 @@
 (spacemacs/set-leader-keys "yr" #'yas-reload-all)
 (spacemacs/set-leader-keys "hc" #'helm-company)
 
+(spacemacs/set-leader-keys-for-major-mode 'go-mode
+  "hd" 'godoc
+  "hg" 'go-goto-docstring
+  "ha" 'go-goto-arguments
+  "hf" 'go-goto-function
+  "hr" 'go-goto-return-values
+  )
+
 
 ;; Eww? Lets try...
 ;; (defun oleh-eww-hook ()

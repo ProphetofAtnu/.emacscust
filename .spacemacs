@@ -48,7 +48,6 @@ values."
      org
      org-addon
      (shell :variables
-            shell-default-shell 'eshell
             shell-default-height 30
             shell-default-position 'bottom)
      spell-checking
@@ -58,10 +57,14 @@ values."
      csv
      (javascript :variables
                  javascript-import-tool 'import-js
+                 javascript-import-tool 'import-js
                  javascript-backend 'lsp
+                 js-indent-level 2
                  javascript-fmt-tool 'prettier
+                 javascript-repl 'nodejs
+                 js2-include-node-externs t
                  node-add-modules-path t)
-     js-addon
+     ;; js-addon
      dap
      latex
      (python :variables
@@ -71,6 +74,8 @@ values."
      csharp
      (go :variables
          go-tab-width 4
+         gofmt-command "goimports"
+         gofmt-before-save t
          ;; go-backend 'lsp
          )
      shell-scripts
@@ -84,9 +89,14 @@ values."
      c-c++
      common-lisp
      pandoc
+     treemacs
      systemd
+     (dash :variables
+           helm-dash-docset-newpath "~/.local/share/Zeal/Zeal/docsets")
      ansible
      ;; inf-mongo
+     restclient
+     import-js
      yaml
      react
      )
@@ -99,6 +109,7 @@ values."
                                       go-scratch
                                       exec-path-from-shell
                                       irony
+                                      elisp-format
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -359,19 +370,8 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ;; Load custom functions
-  (load "~/.emacscust/funcs.el")
-
   ;; Load my custom stuff
   (load "~/.emacscust/spaceuconf.el")
-
-  ;; Load my custom capture templates
-  (load "~/.emacscust/orgconfig.el")
-
-  ;; Load my custom maps
-  (load "~/.emacscust/maps.el")
-
-
   ;; Tramp customization
   (setq tramp-shell-prompt-pattern "\\(?:^\\|\r\\)[^]#$%>\n]*#?[]#$%>].* *\\(^[\\[[0-9;]*[a-zA-Z] *\\)*")
 
