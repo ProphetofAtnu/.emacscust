@@ -81,6 +81,7 @@ values."
      shell-scripts
      themes-megapack
      salt
+     gpu
      sql
      (lsp :variables
           lsp-ui-sideline-enable nil)

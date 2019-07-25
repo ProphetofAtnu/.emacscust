@@ -5,3 +5,10 @@
     "==" 'elisp-format-buffer
     "=f" 'elisp-format-file
     "=d" 'elisp-format-directory))
+
+
+(use-package dap-mode
+  :init
+  (use-package dap-node)
+  (use-package dap-go)
+)
